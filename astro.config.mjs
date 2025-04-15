@@ -27,10 +27,10 @@ export default defineConfig({
           content: 'https://xplex.me/preview.png',
         },
       }],
-      social: {
-        'github': 'https://github.com/xplexHQ',
-        'x.com': 'https://x.com/xplexHQ',
-      },
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/xplexHQ' },
+        { icon: 'x.com', label: '𝕏', href: 'https://x.com/xplexHQ' },
+      ],
       sidebar: [
         {
           label: 'Introduction',
