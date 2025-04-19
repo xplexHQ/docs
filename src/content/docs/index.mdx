@@ -1,40 +1,61 @@
 ---
-title: Multi-stream Renaissance
-description: xplex—your personal, self-hosted, open source, multi-streaming server
-head: # https://github.com/withastro/starlight/discussions/1103#discussioncomment-7628411
-  - tag: style
-    content: ":root { --sl-content-width: 75rem !important; }"
-template: splash
-banner:
-  content: |
-    <b style="color:#b0b;">xplex</b> as a service is <b>coming soon™</b>
-    &mdash; <a href="https://tally.so/r/mezW6q">request invite</a> for early bird access!
-hero:
-  title: The renaissance will not be televised
-  tagline: But it <b>will</b> be multi-streamed LIVE&mdash;with <b style="color:#b0b;">xplex</b>
-  image:
-    file: ../../../public/favicon.svg
-    alt: xplex logo
-  actions:
-    - text: Setup Now
-      link: /setup
-      icon: rocket
-      variant: primary
-    - text: Learn More
-      link: /intro
-      icon: right-arrow
-      variant: secondary
-    - text: Request Invite
-      link: https://tally.so/r/mezW6q
-      icon: right-caret
+title: Getting to know
+description: Introduction to xplex—your personal, self-hosted, open source, multi-streaming server
 ---
-import Xplex from '@components/Xplex.astro';
-import { Image } from 'astro:assets';
-import banner from 'public/xplex-banner.png';
-import xposed from 'public/xplex-xposed.excalidraw.svg';
 
-<center id="elevator-pitch">
-<h2><Xplex />&mdash;your personal, self-hosted, open source, multi-streaming server</h2>
-<Image src={ banner } id="xplex-banner" alt="boy multi-streaming" data-zoom-off />
-<Image src={ xposed } id="xplex-xposed" alt="exposition of xplex" data-zoom-off />
-</center>
+import Xplex from '@components/Xplex.astro';
+import { FileTree, Steps } from '@astrojs/starlight/components';
+
+<center>![xplex logo](/logo.svg)</center>
+
+#### <Xplex />—your personal, open-source multi-streaming server to ***go live everywhere, all at once.***
+
+---
+
+## Why xplex?
+
+Streaming to just one platform is limiting. <Xplex /> removes that barrier by letting you stream to *all* the platforms you've configured—Twitch, YouTube, Facebook, and more—**simultaneously**.
+
+:::note[Think of it this way...]
+Just like an HDMI splitter sends one video signal to multiple screens, <Xplex /> forwards your stream to multiple platforms—no extra load on your main computer, no compromises.
+:::
+
+![xplex explained](/xplex-xplained.excalidraw.svg)
+
+---
+
+## Who is it for?
+
+<Xplex /> is built for content creators who want:
+
+- Greater reach without platform lock-in  
+- Freedom from expensive multi-streaming services  
+- Full control over their stream data and infrastructure  
+- An open source, extensible, self-hostable solution
+
+:::tip[Ready for everyone]
+**Previously only suited for technical users—now anyone can multi-stream with <Xplex />.** With the new [1-click setup](/setup/1-click), getting started is easier than ever.
+:::
+
+---
+
+## How does it run?
+
+You can deploy <Xplex /> in a way that fits your setup:
+
+- **Cloud server (recommended)** — ideal for network stability and bandwidth  
+- **Local machine or homelab** — works well, as long as it's not your main workstation  
+
+This [guide on choosing hosts](/refs/choose/hosts) offers practical advice based on your use case.
+
+:::note[Compute & Complexity]
+No transcoding means low overhead. Your stream is passed through as-is, preserving quality and minimizing compute needs. Even a budget VPS can handle it.
+:::
+
+---
+
+## What does it cost?
+
+<Xplex /> is **free and open source**, licensed under **MPLv2.0**.
+
+Your only cost is hosting. Depending on your cloud provider, you can get started with minimal investment — or even free credits via [our provider reference](/refs/choose/providers).

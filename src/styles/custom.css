@@ -32,24 +32,8 @@
 body {
   background: radial-gradient(circle at 25% 25%, var(--sl-color-accent-low) 25%, var(--sl-color-black) 100%);
 }
-#elevator-pitch h2 {
-  color: var(--sl-color-gray-3);
-}
-#xplex-banner {
-  margin: 8rem auto 0;
-  filter: drop-shadow(0 0 1px var(--sl-color-accent));
-}
-#xplex-xposed {
-  margin: 0 auto 8rem;
-}
-:root[data-theme='dark'] #xplex-xposed {
-  filter: drop-shadow(0 0 0.5rem var(--sl-color-accent));
-}
-:root[data-theme='light'] #xplex-xposed {
-  filter: drop-shadow(1rem 1rem 4rem var(--sl-color-accent));
-}
-#acknowledgement a {
-  text-decoration: none;
+.pagination-links {
+  margin: 4rem 0;
 }
 #_top:not(.hero #_top) {
   text-align: center;
@@ -76,6 +60,6 @@ body {
 .contains-task-list {
   list-style: none;
 }
-.contains-task-list li.task-list-item input[type="checkbox"]  {
+.contains-task-list li.task-list-item input[type="checkbox"] {
   margin: auto 0.5rem;
 }

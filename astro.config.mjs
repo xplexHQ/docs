@@ -4,14 +4,14 @@ import starlightImageZoom from 'starlight-image-zoom'
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://xplex.me',
+  site: 'https://docs.xplex.me',
   integrations: [
     starlight({
       plugins: [starlightImageZoom()],
       credits: true,
       title: 'xplex',
       logo: {
-        src: './public/favicon.svg',
+        src: './public/logo.svg',
       },
       tableOfContents: false,
       customCss: [
@@ -24,7 +24,7 @@ export default defineConfig({
         tag: 'meta',
         attrs: {
           property: 'og:image',
-          content: 'https://xplex.me/preview.png',
+          content: 'https://docs.xplex.me/preview.png',
         },
       }],
       social: [
@@ -34,10 +34,10 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Introduction',
-          autogenerate: { directory: 'intro' },
+          items: [ 'deepdive', 'index'],
         },
         {
-          label: 'How-to Guide',
+          label: 'Setup Guide',
           autogenerate: { directory: 'setup' },
         },
         {
@@ -56,10 +56,6 @@ export default defineConfig({
               autogenerate: { directory: 'refs/change' },
             },
           ],
-        },
-        {
-          label: 'About',
-          autogenerate: { directory: 'about' },
         },
       ],
     }),

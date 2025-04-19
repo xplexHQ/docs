@@ -1,0 +1,81 @@
+---
+title: Under the hood
+description: The technical details on how xplex works.
+prev:
+  link: /
+  label: Getting to know
+next:
+  link: /setup
+  label: Setup overview
+---
+
+import Xplex from '@components/Xplex.astro';
+import { FileTree, Steps } from '@astrojs/starlight/components';
+
+At its core, <Xplex /> is an [nginx](http://nginx.org/) server with [RTMP support](https://github.com/arut/nginx-rtmp-module), which pushes the incoming stream to multiple RTMP endpoints—the platforms you stream to.
+
+<Xplex /> also includes a simple web dashboard for config management, called <Xplex isHQ />.
+
+---
+
+## Project structure
+
+Here's how the <Xplex /> [`core`](https://github.com/xplexHQ/core) is organized:
+
+<FileTree>
+
+- .github/ ----> GitHub Actions & CI workflows  
+- app/ --------> Source code for <Xplex isHQ />  
+- conf/ -------> RTMP & HTTP configs for nginx  
+- daemons/ ----> systemd units for service control  
+- **compose.yaml** --> Docker Compose definition  
+- Dockerfile ---> Container build steps  
+- LICENSE -----> Licensed under MPLv2.0  
+- setup.sh ----> Manual setup script  
+- xplex.sh ----> Container start script
+
+</FileTree>
+
+---
+
+## How it's built
+
+<Steps>
+
+1. <details>
+   <summary>Custom-build the `nginx-rtmp` container</summary>
+   Run `docker build --target nginx -t xplex/nginx .` if you just need the nginx base image.
+   </details>
+2. <details>
+   <summary>Integrate with a Node.js base image</summary>
+   This setup simplifies things—though decoupling Node.js is on the roadmap.
+    </details>
+3. <details>
+   <summary>Configure HTTP and RTMP servers</summary>
+   HTTP is used to serve the dashboard; reverse-proxied to port 80 for easy access. RTMP is used to receive the stream and push it to the platforms.
+   </details>
+4. <details>
+   <summary>Deploy <Xplex isHQ /> server</summary>
+   A lightweight Node.js app to manage and store ingest URLs.
+   </details>
+5. <details>
+   <summary>Launch in sequence</summary>
+   First the dashboard API, then the nginx server with RTMP support.
+   </details>
+
+</Steps>
+
+---
+
+## Future Roadmap
+
+- [ ] ARM & RISC-V architecture support  
+- [ ] Unit and integration testing  
+- [ ] Major upgrades to <Xplex isHQ />  
+- [ ] HTTPS / Let's Encrypt support  
+- [ ] One-click provider integrations  
+- [ ] **Stretch goals**: RTMPS, RTSP, SRT, HLS, NDI support  
+
+:::note[Missing something?]
+Have questions or see room for improvement? We'd love your input—[open an issue](https://github.com/xplexHQ/core/issues).
+:::
